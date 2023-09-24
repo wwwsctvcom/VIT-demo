@@ -16,5 +16,4 @@ if __name__ == "__main__":
     image = Image.open(img)
     image_inputs = image_processor(image, return_tensors="pt").pixel_values
     label = int(torch.argmax(F.softmax(model(image_inputs).logits, dim=-1), dim=-1))
-    print(label)
     print(id2label[label])
